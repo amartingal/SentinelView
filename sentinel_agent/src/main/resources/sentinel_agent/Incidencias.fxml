@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="750.0" prefWidth="1300.0" style="-fx-background-color: #b3b3b3; -fx-border-color: black; -fx-border-width: 5;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sentinel_agent.controller.IncidenciasController">
+    <!-- BARRA LATERAL IZQUIERDA -->
+    <left>
+        <VBox alignment="TOP_CENTER" prefWidth="380.0" spacing="40.0" style="-fx-background-color: #a6a6a6; -fx-border-color: #0b295c; -fx-border-width: 0 40 0 0;" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets left="40.0" right="40.0" />
+            </padding>
+            <children>
+                <HBox alignment="CENTER">
+                    <Button fx:id="btnAtras" mnemonicParsing="false" onAction="#volverAtras" prefWidth="120.0" style="-fx-background-color: #0b295c; -fx-text-fill: white; -fx-border-radius: 20; -fx-background-radius: 20; -fx-cursor: hand;" text="Atras">
+                        <font>
+                            <Font name="System Bold" size="14.0" />
+                        </font>
+                        <VBox.margin>
+                            <Insets top="30.0" />
+                        </VBox.margin>
+                    </Button>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+                </HBox>
+                
+                <VBox alignment="CENTER" spacing="10.0">
+                    <Label text="Fecha">
+                        <font>
+                            <Font name="System Bold" size="16.0" />
+                        </font>
+                    </Label>
+                    <TextField fx:id="txtFecha" alignment="CENTER" editable="false" prefHeight="40.0" prefWidth="300.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-width: 2; -fx-font-weight: bold; -fx-font-size: 16px;" />
+                </VBox>
+
+                <VBox alignment="CENTER" spacing="10.0">
+                    <Label text="MAC">
+                        <font>
+                            <Font name="System Bold" size="16.0" />
+                        </font>
+                    </Label>
+                    <TextField fx:id="txtMac" alignment="CENTER" editable="false" prefHeight="40.0" prefWidth="300.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-width: 2; -fx-font-weight: bold; -fx-font-size: 16px;" />
+                </VBox>
+
+                <VBox alignment="CENTER" spacing="10.0">
+                    <Label text="Nombre Equipo">
+                        <font>
+                            <Font name="System Bold" size="16.0" />
+                        </font>
+                    </Label>
+                    <TextField fx:id="txtIdUsuario" alignment="CENTER" editable="false" prefHeight="40.0" prefWidth="300.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-width: 2; -fx-font-weight: bold; -fx-font-size: 16px;" />
+                </VBox>
+            </children>
+        </VBox>
+    </left>
+    
+    <!-- ZONA CENTRAL (CON SCROLL POR SI CRECE MUCHO) -->
+    <center>
+        <ScrollPane fitToWidth="true" fitToHeight="true" style="-fx-background-color: #b3b3b3; -fx-background: #b3b3b3; -fx-border-color: transparent;">
+            <content>
+                <VBox alignment="TOP_CENTER" spacing="50.0" style="-fx-background-color: #b3b3b3;">
+                    <padding>
+                        <Insets bottom="50.0" left="20.0" right="20.0" top="60.0" />
+                    </padding>
+                    <children>
+                        <Label text="Incidencias">
+                            <font>
+                                <Font name="System Bold" size="50.0" />
+                            </font>
+                        </Label>
+                        
+                        <!-- CONTENEDOR PARALELO (Puertos y Procesos en vertical uno al lado del otro) -->
+                        <HBox alignment="CENTER" spacing="40.0">
+                            <children>
+                                <!-- COLUMNA PUERTOS -->
+                                <VBox alignment="TOP_CENTER" spacing="15.0">
+                                    <children>
+                                        <Label text="Puertos">
+                                            <font>
+                                                <Font name="System Bold" size="22.0" />
+                                            </font>
+                                        </Label>
+                                        <TextArea fx:id="lblPuertos" editable="false" focusTraversable="false" prefHeight="400.0" prefWidth="380.0" wrapText="true" style="-fx-background-color: white; -fx-control-inner-background: white; -fx-border-color: black; -fx-border-width: 2; -fx-font-size: 15px; -fx-text-fill: black; -fx-padding: 5;" />
+                                    </children>
+                                </VBox>
+
+                                <!-- COLUMNA PROCESOS -->
+                                <VBox alignment="TOP_CENTER" spacing="15.0">
+                                    <children>
+                                        <Label text="Procesos">
+                                            <font>
+                                                <Font name="System Bold" size="22.0" />
+                                            </font>
+                                        </Label>
+                                        <TextArea fx:id="lblProcesos" editable="false" focusTraversable="false" prefHeight="400.0" prefWidth="380.0" wrapText="true" style="-fx-background-color: white; -fx-control-inner-background: white; -fx-border-color: black; -fx-border-width: 2; -fx-font-size: 15px; -fx-text-fill: black; -fx-padding: 5;" />
+                                    </children>
+                                </VBox>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+            </content>
+        </ScrollPane>
+    </center>
+    
+    <!-- BORDE DERECHO (Azul como en la imagen) -->
+    <right>
+        <VBox prefWidth="50.0" style="-fx-background-color: #0b295c; -fx-border-color: black; -fx-border-width: 0 0 0 2;" BorderPane.alignment="CENTER" />
+    </right>
+</BorderPane>

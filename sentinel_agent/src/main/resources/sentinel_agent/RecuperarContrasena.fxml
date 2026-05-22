@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+
+<!-- Pantalla de Recuperación: Interfaz dedicada al restablecimiento de credenciales -->
+<VBox alignment="CENTER" prefHeight="750.0" prefWidth="1300.0" spacing="30.0" style="-fx-background-color: #0b295c;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sentinel_agent.controller.RecuperarContrasenaController">
+   <children>
+      
+      <!-- Identidad Visual: Logo representativo en formato reducido -->
+      <ImageView fitHeight="250.0" fitWidth="350.0" preserveRatio="true">
+         <image>
+            <Image url="@img/logoSinFondo.png" />
+         </image>
+      </ImageView>
+
+      <!-- Bloque Central de Seguridad: Agrupa los campos necesarios para el cambio de clave -->
+      <VBox alignment="CENTER" maxWidth="400.0" prefWidth="400.0" spacing="20.0" style="-fx-background-color: #a6a6a6; -fx-background-radius: 10; -fx-border-color: #404040; -fx-border-radius: 10; -fx-border-width: 1;">
+         <children>
+            <!-- Título de la Operación -->
+            <Label style="-fx-font-weight: bold; -fx-font-size: 18px; -fx-text-fill: #333333;" text="Recuperar Contraseña" />
+            
+            <!-- Identificación: Campo para el usuario que desea recuperar el acceso -->
+            <TextField fx:id="txtUsuario" maxWidth="300.0" prefHeight="40.0" promptText="Nombre de Usuario" style="-fx-background-color: white; -fx-padding: 10; -fx-font-size: 14px; -fx-alignment: center; -fx-text-fill: black;" />
+            
+            <!-- Verificación: Campo para el correo electrónico asociado a la cuenta -->
+            <TextField fx:id="txtEmail" maxWidth="300.0" prefHeight="40.0" promptText="Correo electrónico" style="-fx-background-color: white; -fx-padding: 10; -fx-font-size: 14px; -fx-alignment: center; -fx-text-fill: black;" />
+
+            <!-- Botón Ejecutor: Lanza la lógica de actualización en la base de datos -->
+            <Button mnemonicParsing="false" onAction="#handleRecuperar" prefWidth="180.0" style="-fx-background-color: #0b295c; -fx-text-fill: white; -fx-border-color: #000000; -fx-border-radius: 3; -fx-background-radius: 3; -fx-padding: 10 20; -fx-font-size: 14px; -fx-font-weight: bold; -fx-cursor: hand;" text="Restablecer" />
+         </children>
+         <padding>
+            <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+         </padding>
+         <effect>
+            <!-- Sombra paralela para dar relieve al panel central -->
+            <DropShadow color="#00000080" height="15.0" radius="7.0" width="15.0" />
+         </effect>
+      </VBox>
+      
+      <!-- Retorno: Enlace para cancelar la operación y volver al Login -->
+      <Hyperlink onAction="#volverLogin" text="Volver al inicio de sesión" textFill="WHITE" underline="true" />
+   </children>
+   <padding>
+      <Insets bottom="70.0" left="40.0" right="60.0" top="40.0" />
+   </padding>
+</VBox>
+
+
+
+

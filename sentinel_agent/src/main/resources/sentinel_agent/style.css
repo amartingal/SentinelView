@@ -1,0 +1,7 @@
+/* Estilos globales para la aplicación Sentinel Agent */
+
+/* Asegura que el promptText (hint) permanezca visible cuando el campo tiene el foco,
+   hasta que el usuario empiece a escribir. */
+.text-input, .text-input:focused {
+    -fx-prompt-text-fill: #808080 !important;
+}

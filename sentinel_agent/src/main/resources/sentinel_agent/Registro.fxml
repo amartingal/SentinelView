@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<!-- Contenedor Principal: Organiza la interfaz de registro de nuevos agentes -->
+<VBox alignment="CENTER" prefHeight="750.0" prefWidth="1300.0" spacing="30.0" style="-fx-background-color: #0b295c;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sentinel_agent.controller.RegistroController">
+   <children>
+      
+      <!-- Identidad Visual Superior -->
+      <ImageView fitHeight="250.0" fitWidth="350.0" preserveRatio="true">
+         <image>
+            <Image url="@img/logoSinFondo.png" />
+         </image>
+      </ImageView>
+
+      <!-- Panel de Formulario Central: Estructura con fondo gris para contener los datos de alta -->
+      <VBox alignment="CENTER" maxWidth="400.0" prefWidth="400.0" spacing="15.0" style="-fx-background-color: #a6a6a6; -fx-background-radius: 10; -fx-border-color: #404040; -fx-border-radius: 10; -fx-border-width: 1;">
+         <children>
+            <!-- Entrada de Identificador: Nombre de usuario deseado -->
+            <TextField fx:id="txtUsuario" maxWidth="300.0" prefHeight="40.0" promptText="Nombre Usuario" style="-fx-background-color: white; -fx-padding: 10; -fx-font-size: 14px; -fx-alignment: center; -fx-text-fill: black;" />
+            
+            <!-- Entrada de Comunicación: Correo electrónico del usuario -->
+            <TextField fx:id="txtEmail" maxWidth="300.0" prefHeight="40.0" promptText="Correo electrónico" style="-fx-background-color: white; -fx-padding: 10; -fx-font-size: 14px; -fx-alignment: center; -fx-text-fill: black;" />
+            
+            <!-- Entrada de Credencial: Contraseña principal -->
+            <PasswordField fx:id="txtPassword" maxWidth="300.0" prefHeight="40.0" promptText="Contraseña" style="-fx-background-color: white; -fx-padding: 10; -fx-font-size: 14px; -fx-alignment: center; -fx-text-fill: black;" />
+            
+            <!-- Verificación de Credencial: Campo para confirmar la contraseña -->
+            <PasswordField fx:id="txtRepetirPassword" maxWidth="300.0" prefHeight="40.0" promptText="Repetir contraseña" style="-fx-background-color: white; -fx-padding: 10; -fx-font-size: 14px; -fx-alignment: center; -fx-text-fill: black;" />
+            
+            <!-- Panel de Instrucciones Desplegable: Muestra requisitos de seguridad (oculto por defecto) -->
+            <VBox fx:id="panelInfo" managed="false" spacing="2.0" style="-fx-background-color: rgba(255,255,255,0.4); -fx-padding: 8; -fx-background-radius: 5; -fx-border-color: #0b295c; -fx-border-radius: 5; -fx-border-width: 0.5;" visible="false">
+               <children>
+                  <Label style="-fx-font-weight: bold; -fx-font-size: 10px; -fx-text-fill: #0b295c;" text="REQUISITOS:" />
+                  <Label style="-fx-font-size: 10px; -fx-text-fill: #333333;" text="• Usuario: Mínimo 3 caracteres, en minúsculas, sin números ni espacios." />
+                  <Label style="-fx-font-size: 10px; -fx-text-fill: #333333;" text="• Email: Obligatorio (debe terminar en .com o .es)." />
+                  <Label style="-fx-font-size: 10px; -fx-text-fill: #333333;" text="• Contraseña: Mínimo 4 caracteres (1 letra, 1 número y 1 símbolo)." />
+               </children>
+            </VBox>
+            
+            <!-- Fila de Acciones: Botón de registro y botón de ayuda 'i' -->
+            <HBox alignment="CENTER" spacing="10.0">
+               <children>
+                  <!-- Ejecutor de Registro -->
+                  <Button mnemonicParsing="false" onAction="#handleRegistro" prefWidth="180.0" style="-fx-background-color: #0b295c; -fx-text-fill: white; -fx-border-color: #000000; -fx-border-radius: 3; -fx-background-radius: 3; -fx-padding: 10 30; -fx-font-size: 14px; -fx-font-weight: bold; -fx-cursor: hand;" text="Registrarse" />
+                  <!-- Botón de Información Alternable -->
+                  <Button fx:id="btnInfo" onAction="#mostrarOcultarInfo" style="-fx-background-radius: 20; -fx-background-color: #0b295c; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand;" text="i" />
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+         </padding>
+         <effect>
+            <!-- Sombra para dar profundidad al formulario -->
+            <DropShadow color="#00000080" height="15.0" radius="7.0" width="15.0" />
+         </effect>
+      </VBox>
+      
+      <!-- Retorno: Enlace para usuarios que ya poseen una cuenta -->
+      <Hyperlink onAction="#volverInicioSesion" text="¿Ya tienes cuenta? Inicia sesión aquí" textFill="WHITE" underline="true">
+         <VBox.margin>
+            <Insets bottom="30.0" />
+         </VBox.margin>
+      </Hyperlink>
+
+   </children>
+   <padding>
+      <Insets bottom="70.0" left="40.0" right="60.0" top="40.0" />
+   </padding>
+</VBox>
+
+
+
+

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane prefHeight="750.0" prefWidth="1300.0" style="-fx-background-color: #0b295c;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sentinel_agent.controller.ModificadorAgenteController">
+   <padding>
+      <Insets bottom="30.0" left="20.0" right="20.0" top="30.0" />
+   </padding>
+   <children>
+      <!-- Marca de Agua: Imagen de fondo con opacidad reducida -->
+      <ImageView fitHeight="545.0" fitWidth="746.0" opacity="0.2" preserveRatio="true">
+         <image>
+            <Image url="@img/logoSinFondo.png" />
+         </image>
+      </ImageView>
+
+      <!-- Botón Volver: "Flotando" arriba a la izquierda -->
+      <HBox alignment="TOP_LEFT" pickOnBounds="false">
+         <children>
+            <Button fx:id="btnVolver" mnemonicParsing="false" onAction="#volverAtras" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-border-color: black; -fx-border-radius: 10; -fx-cursor: hand;" text="Atras">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+
+      <VBox alignment="CENTER" spacing="20.0" maxWidth="700.0" StackPane.alignment="CENTER">
+         <children>
+            <Label text="Modificar Agente de Monitorización" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="28.0" />
+               </font>
+               <effect>
+                  <DropShadow color="#00000080" />
+               </effect>
+            </Label>
+            
+            <HBox spacing="40.0" alignment="CENTER" VBox.vgrow="ALWAYS">
+               <children>
+                  <!-- Panel de Procesos -->
+                  <VBox alignment="TOP_CENTER" spacing="15.0" style="-fx-background-color: #a6a6a6; -fx-background-radius: 10; -fx-border-color: #404040; -fx-border-radius: 10; -fx-border-width: 1;" HBox.hgrow="ALWAYS">
+                     <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </padding>
+                     <children>
+                        <Label text="Procesos Permitidos">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <ListView fx:id="listProcesos" prefHeight="250.0" VBox.vgrow="ALWAYS" />
+                        <HBox spacing="10.0" alignment="CENTER_LEFT">
+                           <children>
+                              <TextField fx:id="txtNuevoProceso" promptText="Ej: chrome.exe" HBox.hgrow="ALWAYS" prefHeight="35.0" />
+                              <Button mnemonicParsing="false" onAction="#anadirProceso" text="Añadir" prefHeight="35.0" style="-fx-background-color: #153c7a; -fx-text-fill: white; -fx-cursor: hand; -fx-background-radius: 5; -fx-font-weight: bold;"/>
+                           </children>
+                        </HBox>
+                        <Button mnemonicParsing="false" onAction="#quitarProceso" text="Borrar proceso" prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: #cc0000; -fx-text-fill: white; -fx-cursor: hand; -fx-background-radius: 5; -fx-font-weight: bold;" />
+                     </children>
+                     <effect>
+                        <DropShadow color="#00000080" height="15.0" radius="7.0" width="15.0" />
+                     </effect>
+                  </VBox>
+
+                  <!-- Panel de Puertos -->
+                  <VBox alignment="TOP_CENTER" spacing="15.0" style="-fx-background-color: #a6a6a6; -fx-background-radius: 10; -fx-border-color: #404040; -fx-border-radius: 10; -fx-border-width: 1;" HBox.hgrow="ALWAYS">
+                     <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </padding>
+                     <children>
+                        <Label text="Puertos Permitidos">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <ListView fx:id="listPuertos" prefHeight="250.0" VBox.vgrow="ALWAYS" />
+                        <HBox spacing="10.0" alignment="CENTER_LEFT">
+                           <children>
+                              <TextField fx:id="txtNuevoPuerto" promptText="Ej: 8080" HBox.hgrow="ALWAYS" prefHeight="35.0" />
+                              <Button mnemonicParsing="false" onAction="#anadirPuerto" text="Añadir" prefHeight="35.0" style="-fx-background-color: #153c7a; -fx-text-fill: white; -fx-cursor: hand; -fx-background-radius: 5; -fx-font-weight: bold;"/>
+                           </children>
+                        </HBox>
+                        <Button mnemonicParsing="false" onAction="#quitarPuerto" text="Borrar puerto" prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: #cc0000; -fx-text-fill: white; -fx-cursor: hand; -fx-background-radius: 5; -fx-font-weight: bold;" />
+                     </children>
+                     <effect>
+                        <DropShadow color="#00000080" height="15.0" radius="7.0" width="15.0" />
+                     </effect>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</StackPane>
